@@ -17,4 +17,7 @@ public class DashboardPage {
 
     @FindBy(xpath = "//div[@class='whatsapp wow flash animated']")
     public WebElement whatsappIcon;
+
+    @FindBy(xpath = "//button[@class='e1mwfyk10 lc-7qdzrc e1m5b1js0']")
+    public WebElement leaveAMessageButton;
 }
