@@ -12,20 +12,23 @@ public class Driver {
 
     private static WebDriver driver;
 
-    public static WebDriver getDriver(){
-        String browserType = ConfigurationReader.getProperty("browser");
+    public static WebDriver getDriver() {
+        if (driver == null) {
+            String browserType = ConfigurationReader.getProperty("browser");
 
-        switch (browserType){
-            case "chrome":
-                WebDriverManager.chromedriver().setup();
-                driver = new ChromeDriver();
-                break;
-            case "firefox":
-                WebDriverManager.firefoxdriver().setup();
-                driver = new FirefoxDriver();
+            switch (browserType) {
+                case "chrome":
+                    WebDriverManager.chromedriver().setup();
+                    driver = new ChromeDriver();
+                    break;
+                case "firefox":
+                    WebDriverManager.firefoxdriver().setup();
+                    driver = new FirefoxDriver();
+                    break;
+            }
+            driver.manage().window().maximize();
+            driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         }
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         return driver;
     }
 }
