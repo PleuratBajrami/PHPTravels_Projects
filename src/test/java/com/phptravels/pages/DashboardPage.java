@@ -5,8 +5,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import javax.xml.ws.wsaddressing.W3CEndpointReference;
-
 public class DashboardPage {
     public DashboardPage(){
         PageFactory.initElements(Driver.getDriver(), this);
@@ -20,15 +18,6 @@ public class DashboardPage {
     @FindBy(xpath = "//div[@class='whatsapp wow flash animated']")
     public WebElement whatsappIcon;
 
-
-
-
-
-
-
-
-
-
-    @FindBy(xpath = "//a[@href='./contact-us']")
-    public WebElement contactusicon;
+    @FindBy(xpath = "//button[@class='e1mwfyk10 lc-7qdzrc e1m5b1js0']")
+    public WebElement leaveAMessageButton;
 }
