@@ -9,19 +9,15 @@ import org.testng.Assert;
 
 public class BlogPage {
 
+    @FindBy(xpath = "//h2[.='The perfect Blogging Module']")
+    public WebElement actualResult;
+
     public BlogPage(){
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
-    public void verifyBlogPage(){
-        Driver.getDriver().get(ConfigurationReader.getProperty("siteurl"));
-        String expectedResult = "The perfect Blogging";
-
-        @FindBy(xpath = "//h2[.='The perfect Blogging Module']")
-        public WebElement actualResult;
-
-        Assert.assertEquals(actualResult,expectedResult);
+    public void verifyBlogPage(String firstString, WebElement element){
+        Assert.assertEquals(element.getText(),firstString);
 
     }
-
 }
